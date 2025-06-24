@@ -26,5 +26,5 @@ COPY .env* ./
 # Create output directory
 RUN mkdir -p output
 
-# Run the scheduler (checks every 1 minute)
+# Run the scheduler (checks daily at 12:00 PM and 6:00 PM)
 CMD ["python", "scheduler.py"] 

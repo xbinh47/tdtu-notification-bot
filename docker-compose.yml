@@ -11,5 +11,5 @@ services:
       - ./output:/app/output
       - ./readed_noti_category_11.txt:/app/readed_noti_category_11.txt
     restart: unless-stopped
-    # The container runs scheduler.py by default (checks every 1 minute)
+    # The container runs scheduler.py by default (checks daily at 12:00 PM and 6:00 PM)
     # For one-time run only: docker-compose run --rm tdtu-notification-bot python app.py 
