@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  # Main service with built-in 1-minute scheduler
+  tdtu-notification-bot:
+    build: .
+    container_name: tdtu-notification-bot
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./output:/app/output
+      - ./readed_noti_category_11.txt:/app/readed_noti_category_11.txt
+    restart: unless-stopped
+    # The container runs scheduler.py by default (checks every 1 minute)
+    # For one-time run only: docker-compose run --rm tdtu-notification-bot python app.py 
