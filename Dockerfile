@@ -17,6 +17,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN playwright install firefox
 RUN playwright install-deps firefox
 
+# Set the timezone.
+ENV TZ=Asia/Ho_Chi_Minh
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Copy application files
 COPY app.py .
 COPY scheduler.py .
