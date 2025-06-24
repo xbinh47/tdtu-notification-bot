@@ -3,8 +3,15 @@ import logging
 from datetime import datetime, time, timedelta
 from app import main as check_notifications
 
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Configure logging with timezone
+import os
+os.environ['TZ'] = 'Asia/Ho_Chi_Minh'  # Set system timezone to UTC+7
+
+logging.basicConfig(
+    level=logging.INFO, 
+    format='%(asctime)s [UTC+7] - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 logger = logging.getLogger(__name__)
 
 # Schedule times (24-hour format)
